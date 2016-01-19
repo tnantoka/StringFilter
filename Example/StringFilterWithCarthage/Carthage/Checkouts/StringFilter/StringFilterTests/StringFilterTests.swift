@@ -65,8 +65,5 @@ class StringFilterTests: XCTestCase {
 
     func testMultiply() {
         XCTAssertEqual(string.str_filter([.Uppercase, .Shift(1), .Replace("U", "u")]), "uFTu")
-        XCTAssertEqual(string.str_filter(StringFilter.Shift(1) * 3), "whvw")
-        XCTAssertEqual(string.str_filter(3 * StringFilter.Shift(1)), "whvw")
-        XCTAssertEqual(string.str_filter(StringFilter.Shift(1) * 0), string)
     }
 }
