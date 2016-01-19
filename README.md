@@ -2,7 +2,7 @@
 
 A swifty text converter.
 
-## Install
+## Installtion
 
 ### Carthage
 
@@ -22,7 +22,11 @@ pod 'StringFilter'
 import StringFilter
 
 let message = "ifmmp-!xpsme"
-let filters = [StringFilter.Shift(-1), .Capitalize, .Replace("$", "!")]
+let filters = [
+    StringFilter.Shift(-1),
+    .Capitalize,
+    .Replace("$", "!")
+]
 print(message.str_filter(filters)) // "Hello, World!"
 ```
 
@@ -52,7 +56,8 @@ struct ExclaimFilter: StringFilterType {
     }
 }
 
-print("Hello".str_filter(ExclaimFilter() * 3 * StringFilter.Uppercase)) // "HELLO!!!"
+let customFilter = ExclaimFilter() * 3 * StringFilter.Uppercase
+print("Hello".str_filter(customFilter)) // "HELLO!!!"
 ```
 
 ## TODO

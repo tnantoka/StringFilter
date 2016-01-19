@@ -48,9 +48,14 @@ class StringFilterTypeTests: XCTestCase {
     
     func testReadme() {
         let message = "ifmmp-!xpsme"
-        let filters = [StringFilter.Shift(-1), .Capitalize, .Replace("$", "!")]
+        let filters = [
+            StringFilter.Shift(-1),
+            .Capitalize,
+            .Replace("$", "!")
+        ]
         XCTAssertEqual(message.str_filter(filters), "Hello, World!")
         
-        XCTAssertEqual("Hello".str_filter(ExclaimFilter() * 3 * StringFilter.Uppercase), "HELLO!!!")
+        let customFilter = ExclaimFilter() * 3 * StringFilter.Uppercase
+        XCTAssertEqual("Hello".str_filter(customFilter), "HELLO!!!")
     }
 }
