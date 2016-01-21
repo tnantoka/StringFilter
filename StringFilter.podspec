@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
 
   spec.platform = :ios, '9.1'
   spec.requires_arc = true
-  spec.source = { git: 'https://github.com/tnantoka/StringFilter.git', tag: 'v#{spec.version}', submodules: true }
+  spec.source = { git: 'https://github.com/tnantoka/StringFilter.git', tag: spec.version, submodules: true }
   spec.source_files = 'StringFilter/**/*.{h,swift}'
 end
 
