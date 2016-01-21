@@ -1,5 +1,7 @@
 # StringFilter
 
+[![Build Status](https://travis-ci.org/tnantoka/StringFilter.svg?branch=master)](https://travis-ci.org/tnantoka/StringFilter)
+
 A swifty text converter.
 
 ## Installtion
