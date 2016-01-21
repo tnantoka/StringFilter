@@ -12,7 +12,7 @@
 		9B06978B1C4BEB87000E699C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B0697891C4BEB87000E699C /* Main.storyboard */; };
 		9B06978D1C4BEB87000E699C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B06978C1C4BEB87000E699C /* Assets.xcassets */; };
 		9B0697901C4BEB87000E699C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B06978E1C4BEB87000E699C /* LaunchScreen.storyboard */; };
-		9B0697BF1C513185000E699C /* StringFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B0697BE1C513185000E699C /* StringFilter.framework */; };
+		9B0697981C4BEFF5000E699C /* StringFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B0697971C4BEFF5000E699C /* StringFilter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		9B06978C1C4BEB87000E699C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B06978F1C4BEB87000E699C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B0697911C4BEB87000E699C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B0697BE1C513185000E699C /* StringFilter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StringFilter.framework; path = Carthage/Build/iOS/StringFilter.framework; sourceTree = "<group>"; };
+		9B0697971C4BEFF5000E699C /* StringFilter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StringFilter.framework; path = Carthage/Build/iOS/StringFilter.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,7 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B0697BF1C513185000E699C /* StringFilter.framework in Frameworks */,
+				9B0697981C4BEFF5000E699C /* StringFilter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,7 +41,7 @@
 		9B0697791C4BEB87000E699C = {
 			isa = PBXGroup;
 			children = (
-				9B0697BE1C513185000E699C /* StringFilter.framework */,
+				9B0697971C4BEFF5000E699C /* StringFilter.framework */,
 				9B0697841C4BEB87000E699C /* StringFilterWithCarthage */,
 				9B0697831C4BEB87000E699C /* Products */,
 			);
@@ -314,7 +314,6 @@
 				9B0697961C4BEB87000E699C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

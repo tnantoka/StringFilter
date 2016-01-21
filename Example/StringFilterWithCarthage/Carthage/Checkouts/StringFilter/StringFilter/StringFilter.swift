@@ -8,56 +8,102 @@
 
 import Foundation
 
-public indirect enum StringFilter {
+public protocol StringFilterType {
+    func transform(string: String) -> String
+}
+
+public enum StringFilter {
     case Empty
     case Capitalize, Lowercase, Uppercase
     case Shift(Int)
     case Repeat(Int)
     case Replace(String, String)
-    case Multiply(StringFilter, StringFilter)
+    case Multiply(StringFilterType, StringFilterType)
+    case Japanese(JapaneseString, JapaneseString)
 }
 
 extension String {
-    var str_isPrintable: Bool {
-        return rangeOfString("\\p{print}", options: [.RegularExpressionSearch]) != nil
+    var isPrintable: Bool {
+        return isMatch("\\p{print}")
+    }
+    
+    func isMatch(pattern: String) -> Bool {
+        return rangeOfString(pattern, options: .RegularExpressionSearch) != nil
     }
 }
 
-public extension String {
-    func str_filter(filter: StringFilter) -> String {
-        switch filter {
+extension UnicodeScalar {
+    func shift(by: Int) -> String {
+        return String(UnicodeScalar(Int(value) + by))
+    }
+}
+
+extension StringFilter: StringFilterType {
+    public func transform(string: String) -> String {
+        switch self {
         case .Empty:
-            return self
+            return string
         case .Capitalize:
-            return capitalizedString
+            return string.capitalizedString
         case .Lowercase:
-            return lowercaseString
+            return string.lowercaseString
         case .Uppercase:
-            return uppercaseString
+            return string.uppercaseString
         case .Shift(let by):
-            return unicodeScalars.reduce("") {
-                let shifted = String(UnicodeScalar(Int($1.value) + by))
-                return $0 + (shifted.str_isPrintable ? shifted : String($1))
+            return string.unicodeScalars.reduce("") {
+                let shifted = $1.shift(by)
+                return $0 + (shifted.isPrintable ? shifted : String($1))
             }
         case .Repeat(let count):
-            return Array(count: count, repeatedValue: self).joinWithSeparator("")
+            return Array(count: count, repeatedValue: string).joinWithSeparator("")
         case let .Replace(target, replacement):
-            return stringByReplacingOccurrencesOfString(
+            return string.stringByReplacingOccurrencesOfString(
                 target,
                 withString: replacement,
                 options: [.RegularExpressionSearch]
             )
         case let .Multiply(left, right):
-            return str_filter(left).str_filter(right)
+            return right.transform(left.transform(string))
+        case let .Japanese(from, to):
+            return string.str_filter(JapaneseFilter(from: from, to: to))
         }
+    }
+}
+
+public extension String {
+    func str_filter(filter: StringFilter) -> String {
+        return str_filter(filter as StringFilterType)
     }
     
     func str_filter(filters: [StringFilter]) -> String {
-        let filter = filters.reduce(.Empty, combine: *)
+        return str_filter(filters.map { $0 as StringFilterType })
+    }
+    
+    func str_filter(filter: StringFilterType) -> String {
+        return filter.transform(self)
+    }
+    
+    func str_filter(filters: [StringFilterType]) -> String {
+        let filter = filters.reduce(StringFilter.Empty, combine: *)
         return str_filter(filter)
     }
 }
 
-public func *(lhs: StringFilter, rhs: StringFilter) -> StringFilter {
-    return .Multiply(lhs, rhs)
+public func *(lhs: StringFilterType, rhs: StringFilterType) -> StringFilterType {
+    return StringFilter.Multiply(lhs, rhs)
+}
+
+public func *(lhs: StringFilterType, rhs: Int) -> StringFilterType {
+    switch rhs {
+    case Int.min...0:
+        return StringFilter.Empty
+    case 1:
+        return lhs
+    default:
+        return StringFilter.Multiply(lhs, (lhs * (rhs - 1)))
+    }
+}
+
+public func *(lhs: Int, rhs: StringFilterType) -> StringFilterType {
+    return rhs * lhs
 }

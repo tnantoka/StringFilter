@@ -1,6 +1,6 @@
 # StringFilter
 
-[![Build Status](https://travis-ci.org/tnantoka/StringFilter.svg?branch=master)](https://travis-ci.org/tnantoka/StringFilter) [![codecov.io](https://codecov.io/github/tnantoka/StringFilter/coverage.svg?branch=master)](https://codecov.io/github/tnantoka/StringFilter?branch=master) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Build Status](https://travis-ci.org/tnantoka/StringFilter.svg?branch=master)](https://travis-ci.org/tnantoka/StringFilter)
 
 A swifty text converter.
 

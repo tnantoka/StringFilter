@@ -11,9 +11,6 @@
 		9B0697681C4BDDCB000E699C /* StringFilter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B06975D1C4BDDCB000E699C /* StringFilter.framework */; };
 		9B06976D1C4BDDCB000E699C /* StringFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B06976C1C4BDDCB000E699C /* StringFilterTests.swift */; };
 		9B0697781C4BDE08000E699C /* StringFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0697771C4BDE08000E699C /* StringFilter.swift */; };
-		9B06979B1C4C66B5000E699C /* StringFilterTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B06979A1C4C66B5000E699C /* StringFilterTypeTests.swift */; };
-		9B06979D1C4CD2A3000E699C /* JapaneseFilterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B06979C1C4CD2A3000E699C /* JapaneseFilterTests.swift */; };
-		9B06979F1C4CD43A000E699C /* JapaneseFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B06979E1C4CD43A000E699C /* JapaneseFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +31,6 @@
 		9B06976C1C4BDDCB000E699C /* StringFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringFilterTests.swift; sourceTree = "<group>"; };
 		9B06976E1C4BDDCB000E699C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B0697771C4BDE08000E699C /* StringFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFilter.swift; sourceTree = "<group>"; };
-		9B06979A1C4C66B5000E699C /* StringFilterTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFilterTypeTests.swift; sourceTree = "<group>"; };
-		9B06979C1C4CD2A3000E699C /* JapaneseFilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JapaneseFilterTests.swift; sourceTree = "<group>"; };
-		9B06979E1C4CD43A000E699C /* JapaneseFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JapaneseFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +76,6 @@
 				9B0697601C4BDDCB000E699C /* StringFilter.h */,
 				9B0697621C4BDDCB000E699C /* Info.plist */,
 				9B0697771C4BDE08000E699C /* StringFilter.swift */,
-				9B06979E1C4CD43A000E699C /* JapaneseFilter.swift */,
 			);
 			path = StringFilter;
 			sourceTree = "<group>";
@@ -90,8 +83,6 @@
 		9B06976B1C4BDDCB000E699C /* StringFilterTests */ = {
 			isa = PBXGroup;
 			children = (
-				9B06979C1C4CD2A3000E699C /* JapaneseFilterTests.swift */,
-				9B06979A1C4C66B5000E699C /* StringFilterTypeTests.swift */,
 				9B06976C1C4BDDCB000E699C /* StringFilterTests.swift */,
 				9B06976E1C4BDDCB000E699C /* Info.plist */,
 			);
@@ -206,7 +197,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B06979F1C4CD43A000E699C /* JapaneseFilter.swift in Sources */,
 				9B0697781C4BDE08000E699C /* StringFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,9 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B06979B1C4C66B5000E699C /* StringFilterTypeTests.swift in Sources */,
 				9B06976D1C4BDDCB000E699C /* StringFilterTests.swift in Sources */,
-				9B06979D1C4CD2A3000E699C /* JapaneseFilterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,7 +383,6 @@
 				9B0697731C4BDDCB000E699C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		9B0697741C4BDDCB000E699C /* Build configuration list for PBXNativeTarget "StringFilterTests" */ = {
 			isa = XCConfigurationList;
@@ -404,7 +391,6 @@
 				9B0697761C4BDDCB000E699C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
