@@ -31,10 +31,10 @@
 		9B0697601C4BDDCB000E699C /* StringFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringFilter.h; sourceTree = "<group>"; };
 		9B0697621C4BDDCB000E699C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B0697671C4BDDCB000E699C /* StringFilterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StringFilterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B06976C1C4BDDCB000E699C /* StringFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringFilterTests.swift; sourceTree = "<group>"; };
+		9B06976C1C4BDDCB000E699C /* StringFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringFilterTests.swift; path = Tests/StringFilter/StringFilterTests.swift; sourceTree = SOURCE_ROOT; };
 		9B06976E1C4BDDCB000E699C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B0697771C4BDE08000E699C /* StringFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFilter.swift; sourceTree = "<group>"; };
-		9B06979A1C4C66B5000E699C /* StringFilterTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFilterTypeTests.swift; sourceTree = "<group>"; };
+		9B06979A1C4C66B5000E699C /* StringFilterTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringFilterTypeTests.swift; path = Tests/StringFilter/StringFilterTypeTests.swift; sourceTree = SOURCE_ROOT; };
 		9B06979C1C4CD2A3000E699C /* JapaneseFilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JapaneseFilterTests.swift; sourceTree = "<group>"; };
 		9B06979E1C4CD43A000E699C /* JapaneseFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JapaneseFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,7 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				9B06975F1C4BDDCB000E699C /* StringFilter */,
-				9B06976B1C4BDDCB000E699C /* StringFilterTests */,
+				9B06976B1C4BDDCB000E699C /* Tests */,
 				9B06975E1C4BDDCB000E699C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,15 +87,23 @@
 			path = StringFilter;
 			sourceTree = "<group>";
 		};
-		9B06976B1C4BDDCB000E699C /* StringFilterTests */ = {
+		9B06976B1C4BDDCB000E699C /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				9B2AF34A1CA6D7EB00F0E5F5 /* StringFilter */,
+				9B06976E1C4BDDCB000E699C /* Info.plist */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		9B2AF34A1CA6D7EB00F0E5F5 /* StringFilter */ = {
 			isa = PBXGroup;
 			children = (
 				9B06979C1C4CD2A3000E699C /* JapaneseFilterTests.swift */,
 				9B06979A1C4C66B5000E699C /* StringFilterTypeTests.swift */,
 				9B06976C1C4BDDCB000E699C /* StringFilterTests.swift */,
-				9B06976E1C4BDDCB000E699C /* Info.plist */,
 			);
-			path = StringFilterTests;
+			path = StringFilter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,7 +367,7 @@
 		9B0697751C4BDDCB000E699C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = StringFilterTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tnantoka.StringFilterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -369,7 +377,7 @@
 		9B0697761C4BDDCB000E699C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = StringFilterTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tnantoka.StringFilterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

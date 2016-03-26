@@ -1,0 +1,50 @@
+#!/bin/bash
+
+set -e
+
+function xcode_tests {
+    (
+        set -e;
+        set -x;
+        xcodebuild test -project StringFilter.xcodeproj -scheme StringFilter -destination "platform=iOS Simulator,name=iPhone 6s,OS=9.2"
+    )
+    echo
+    echo "Xcode tests passed"
+}
+
+function spm_tests {
+    (
+        set -e;
+        set -x;
+        swift build --clean &&
+        swift build &&
+        swift test
+    )
+    echo
+    echo "SPM tests passed"
+}
+
+function help {
+    echo "Usage: $0 COMMANDS..."
+    echo
+    echo "Runs specific test suites."
+    echo
+    echo "COMMANDS:"
+    echo "  spm:   runs tests via Swift Package Manager (Linux)"
+    echo "  xcode: runs tests via Xcode (iOS)"
+    echo "  help:  Displays this help"
+    echo
+}
+
+for arg in "$@"
+do
+    case $arg in
+        "spm") spm_tests;;
+        "xcode") xcode_tests;;
+        "help") help;;
+    esac
+done
+
+if [ $# == 0 ]; then
+    help
+fi
