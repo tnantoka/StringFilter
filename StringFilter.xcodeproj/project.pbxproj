@@ -31,10 +31,10 @@
 		9B0697601C4BDDCB000E699C /* StringFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringFilter.h; sourceTree = "<group>"; };
 		9B0697621C4BDDCB000E699C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B0697671C4BDDCB000E699C /* StringFilterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StringFilterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B06976C1C4BDDCB000E699C /* StringFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringFilterTests.swift; path = Tests/StringFilter/StringFilterTests.swift; sourceTree = SOURCE_ROOT; };
+		9B06976C1C4BDDCB000E699C /* StringFilterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringFilterTests.swift; path = Tests/StringFilterTests/StringFilterTests.swift; sourceTree = SOURCE_ROOT; };
 		9B06976E1C4BDDCB000E699C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B0697771C4BDE08000E699C /* StringFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringFilter.swift; sourceTree = "<group>"; };
-		9B06979A1C4C66B5000E699C /* StringFilterTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringFilterTypeTests.swift; path = Tests/StringFilter/StringFilterTypeTests.swift; sourceTree = SOURCE_ROOT; };
+		9B06979A1C4C66B5000E699C /* StringFilterTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringFilterTypeTests.swift; path = Tests/StringFilterTests/StringFilterTypeTests.swift; sourceTree = SOURCE_ROOT; };
 		9B06979C1C4CD2A3000E699C /* JapaneseFilterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JapaneseFilterTests.swift; sourceTree = "<group>"; };
 		9B06979E1C4CD43A000E699C /* JapaneseFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JapaneseFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,20 +90,20 @@
 		9B06976B1C4BDDCB000E699C /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				9B2AF34A1CA6D7EB00F0E5F5 /* StringFilter */,
+				9B2AF34A1CA6D7EB00F0E5F5 /* StringFilterTests */,
 				9B06976E1C4BDDCB000E699C /* Info.plist */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		9B2AF34A1CA6D7EB00F0E5F5 /* StringFilter */ = {
+		9B2AF34A1CA6D7EB00F0E5F5 /* StringFilterTests */ = {
 			isa = PBXGroup;
 			children = (
 				9B06979C1C4CD2A3000E699C /* JapaneseFilterTests.swift */,
 				9B06979A1C4C66B5000E699C /* StringFilterTypeTests.swift */,
 				9B06976C1C4BDDCB000E699C /* StringFilterTests.swift */,
 			);
-			path = StringFilter;
+			path = StringFilterTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,14 +163,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Tatsuya Tobioka";
 				TargetAttributes = {
 					9B06975C1C4BDDCB000E699C = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					9B0697661C4BDDCB000E699C = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -253,8 +255,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -301,8 +305,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -322,6 +328,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -333,6 +340,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -344,6 +352,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -351,6 +360,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -361,6 +371,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tnantoka.StringFilter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -371,6 +382,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tnantoka.StringFilterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -381,6 +393,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tnantoka.StringFilterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

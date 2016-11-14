@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "StringFilter"
-  spec.version = "0.0.1"
+  spec.version = "0.0.2"
   spec.summary = "A swifty text converter."
   spec.homepage = "https://github.com/tnantoka/StringFilter"
   spec.license = { type: 'MIT', file: 'LICENSE' }

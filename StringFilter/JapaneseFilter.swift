@@ -9,12 +9,12 @@
 import Foundation
 
 public indirect enum JapaneseString {
-    case Katakana
-    case Hiragana
-    case Alphabet
-    case Number
-    case Full(JapaneseString)
-    case Half(JapaneseString)
+    case katakana
+    case hiragana
+    case alphabet
+    case number
+    case full(JapaneseString)
+    case half(JapaneseString)
 }
 
 struct Distance {
@@ -28,7 +28,7 @@ struct JapaneseFilter {
 }
 
 extension String {
-    func shift(by: Int, pattern: String) -> String {
+    func shift(_ by: Int, pattern: String) -> String {
         return unicodeScalars.reduce("") {
             let origin = String($1)
             return $0 + (origin.isMatch(pattern) ? $1.shift(by) : origin)
@@ -37,19 +37,19 @@ extension String {
 }
 
 extension JapaneseFilter: StringFilterType {
-    func transform(string: String) -> String {
+    func transform(_ string: String) -> String {
         switch (from, to) {
-        case (.Hiragana, .Katakana):
+        case (.hiragana, .katakana):
             return string.shift(Distance.kana, pattern: "\\p{Hiragana}")
-        case (.Katakana, .Hiragana):
+        case (.katakana, .hiragana):
             return string.shift(-Distance.kana, pattern: "\\p{Katakana}")
-        case (.Half(.Alphabet), .Full(.Alphabet)):
+        case (.half(.alphabet), .full(.alphabet)):
             return string.shift(Distance.alnum, pattern: "[a-zA-Z]")
-        case (.Full(.Alphabet), .Half(.Alphabet)):
+        case (.full(.alphabet), .half(.alphabet)):
             return string.shift(-Distance.alnum, pattern: "[ａ-ｚＡ-Ｚ]")
-        case (.Half(.Number), .Full(.Number)):
+        case (.half(.number), .full(.number)):
                 return string.shift(Distance.alnum, pattern: "[0-9]")
-        case (.Full(.Number), .Half(.Number)):
+        case (.full(.number), .half(.number)):
             return string.shift(-Distance.alnum, pattern: "[０-９]")
         default:
             return string

@@ -1,8 +1,8 @@
 import XCTest
-@testable import StringFiltertest
+@testable import StringFilterTests
 
 XCTMain([
-    StringFilterTests(),
-    StringFilterTypeTests(),
-    JapaneseFilterTests(),
+    testCase(StringFilterTests.allTests),
+    testCase(StringFilterTypeTests.allTests),
+    testCase(JapaneseFilterTests.allTests),
 ])

@@ -25,9 +25,9 @@ import StringFilter
 
 let message = "ifmmp-!xpsme"
 let filters = [
-    StringFilter.Shift(-1),
-    .Capitalize,
-    .Replace("$", "!")
+    StringFilter.shift(-1),
+    .capitalize,
+    .replace("$", "!")
 ]
 print(message.str_filter(filters)) // "Hello, World!"
 ```
@@ -36,18 +36,18 @@ print(message.str_filter(filters)) // "Hello, World!"
 
 Case | Source | Result
 --- | --- | ---
-`.Capitalize` | `test` | `Test`
-`.Lowercase` | `TEST` | `test`
-`.Uppercase` | `test` | `TEST`
-`.Shift(1)` | `test` | `uftu`
-`.Repeat(2))` | `test` | `testtest`
-`.Replace("t", "T")` | `test` | `TesT`
-`.Japanese(.Hiragana, .Katakana)` | `あいうえお` | `アイウエオ`
-`.Japanese(.Katakana, .Hiragana)` | `アイウエオ` | `あいうえお`
-`.Japanese(.Full(.Alphabet), .Half(.Alphabet)))` | `ＡＢＣＤＥ` | `ABCDE`
-`.Japanese(.Half(.Alphabet), .Full(.Alphabet)))` | `ABCDE` | `ＡＢＣＤＥ`
-`.Japanese(.Full(.Number), .Half(.Number)))` | `０１２３４５６７８９` | `0123456789`
-`.Japanese(.Half(.Number), .Full(.Number)))` | `0123456789` | `０１２３４５６７８９`
+`.capitalize` | `test` | `Test`
+`.lowercase` | `TEST` | `test`
+`.uppercase` | `test` | `TEST`
+`.shift(1)` | `test` | `uftu`
+`.repeat(2))` | `test` | `testtest`
+`.replace("t", "T")` | `test` | `TesT`
+`.japanese(.hiragana, .katakana)` | `あいうえお` | `アイウエオ`
+`.japanese(.katakana, .hiragana)` | `アイウエオ` | `あいうえお`
+`.japanese(.full(.alphabet), .half(.alphabet)))` | `ＡＢＣＤＥ` | `ABCDE`
+`.japanese(.half(.alphabet), .full(.alphabet)))` | `ABCDE` | `ＡＢＣＤＥ`
+`.japanese(.full(.number), .half(.number)))` | `０１２３４５６７８９` | `0123456789`
+`.japanese(.half(.number), .full(.number)))` | `0123456789` | `０１２３４５６７８９`
 
 ### Custom filter
 
@@ -58,7 +58,7 @@ struct ExclaimFilter: StringFilterType {
     }
 }
 
-let customFilter = ExclaimFilter() * 3 * StringFilter.Uppercase
+let customFilter = ExclaimFilter() * 3 * StringFilter.uppercase
 print("Hello".str_filter(customFilter)) // "HELLO!!!"
 ```
 
