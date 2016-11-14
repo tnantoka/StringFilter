@@ -1,6 +1,0 @@
-framework module Pods_StringFilterWithCocoaPods {
-  umbrella header "Pods-StringFilterWithCocoaPods-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,6 +1,0 @@
-framework module StringFilter {
-  umbrella header "StringFilter-umbrella.h"
-
-  export *
-  module * { export * }
-}
