@@ -6,7 +6,7 @@ function xcode_tests {
     (
         set -e;
         set -x;
-        xcodebuild test -project StringFilter.xcodeproj -scheme StringFilter -destination "platform=iOS Simulator,name=iPhone 7,OS=10.0"
+        xcodebuild test -project StringFilter.xcodeproj -scheme StringFilter -destination "platform=iOS Simulator,name=iPhone 7,OS=10.1"
     )
     echo
     echo "Xcode tests passed"
