@@ -54,6 +54,8 @@ Case | Source | Result
 `.japanese(.half(.alphabet), .full(.alphabet)))` | `ABCDE` | `ＡＢＣＤＥ`
 `.japanese(.full(.number), .half(.number)))` | `０１２３４５６７８９` | `0123456789`
 `.japanese(.half(.number), .full(.number)))` | `0123456789` | `０１２３４５６７８９`
+`.japanese(.full(.katakana), .half(.katakana)))` | `アイウエオ` | `ｱｲｳｴｵ`
+`.japanese(.half(.katakana), .full(.katakana)))` | `ｱｲｳｴｵ` | `アイウエオ`
 
 ### Custom filter
 
