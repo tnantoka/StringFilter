@@ -16,6 +16,7 @@ function spm_tests {
     (
         set -e;
         set -x;
+        swift --version &&
         swift build --clean &&
         swift build &&
         swift test
