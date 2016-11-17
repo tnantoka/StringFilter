@@ -6,16 +6,22 @@ A swifty text converter.
 
 ## Installtion
 
-### Carthage
+### Swift Package Manager (SPM)
 
-```
-github "tnantoka/StringFilter"
+```:swift
+.Package(url: "https://github.com/tnantoka/StringFilter.git", majorVersion: 0, minor: 0),
 ```
 
 ### CocoaPods
 
-```
+```:ruby
 pod 'StringFilter'
+```
+
+### Carthage
+
+```
+github "tnantoka/StringFilter"
 ```
 
 ## Usage
