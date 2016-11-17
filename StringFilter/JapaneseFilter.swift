@@ -34,6 +34,18 @@ extension String {
             return $0 + (origin.isMatch(pattern) ? $1.shift(by) : origin)
         }
     }
+    
+    func replace(_ pattern: String, replacement: (String) -> String) -> String {
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else { return self }
+        let mutableString = NSMutableString(string: self)
+        regex.enumerateMatches(in: self, options: [], range: NSMakeRange(0, characters.count)) { result, _, _ in
+            guard let result = result else { return }
+            let range = result.range
+            let matched = mutableString.substring(with: range)
+            mutableString.replaceCharacters(in: range, with: replacement(matched))
+        }
+        return mutableString as String
+    }
 }
 
 extension JapaneseFilter: StringFilterType {
@@ -51,9 +63,27 @@ extension JapaneseFilter: StringFilterType {
                 return string.shift(Distance.alnum, pattern: "[0-9]")
         case (.full(.number), .half(.number)):
             return string.shift(-Distance.alnum, pattern: "[０-９]")
+        case (.half(.katakana), .full(.katakana)):
+            return string.replace("\\p{Katakana}") { full($0) }
+        case (.full(.katakana), .half(.katakana)):
+            return string.replace("\\p{Katakana}") { half($0) }
         default:
             return string
         }
+    }
+    
+    func transformFullHalf(_ string: String, reverse: Bool) -> String {
+        let mutableString = NSMutableString(string: string)
+        CFStringTransform(mutableString, nil, kCFStringTransformFullwidthHalfwidth, reverse)
+        return mutableString as String
+    }
+    
+    func full(_ string: String) -> String {
+        return transformFullHalf(string, reverse: true)
+    }
+    
+    func half(_ string: String) -> String {
+        return transformFullHalf(string, reverse: false)
     }
 }
 

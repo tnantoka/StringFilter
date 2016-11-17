@@ -32,6 +32,11 @@ class JapaneseFilterTests: XCTestCase {
         XCTAssertEqual("0123456789あ".str_filter(.japanese(.half(.number), .full(.number))), "０１２３４５６７８９あ")
     }
     
+    func testHalfKana() {
+        XCTAssertEqual("ｱｲｳｴｵＡ".str_filter(.japanese(.half(.katakana), .full(.katakana))), "アイウエオＡ")
+        XCTAssertEqual("アイウエオＡ".str_filter(.japanese(.full(.katakana), .half(.katakana))), "ｱｲｳｴｵＡ")
+    }
+
     func testDefault() {
         XCTAssertEqual("test".str_filter(.japanese(.alphabet, .alphabet)), "test")
     }

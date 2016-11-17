@@ -71,7 +71,6 @@ print("Hello".str_filter(customFilter)) // "HELLO!!!"
 ## TODO
 
 - [ ] Chinese numeral
-- [ ] One-byte katakana 
 
 ## Acknowledgements
 
