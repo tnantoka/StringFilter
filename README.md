@@ -50,18 +50,18 @@ Case | Source | Result
 `.replace("t", "T")` | `test` | `TesT`
 `.japanese(.hiragana, .katakana)` | `あいうえお` | `アイウエオ`
 `.japanese(.katakana, .hiragana)` | `アイウエオ` | `あいうえお`
-`.japanese(.full(.alphabet), .half(.alphabet)))` | `ＡＢＣＤＥ` | `ABCDE`
-`.japanese(.half(.alphabet), .full(.alphabet)))` | `ABCDE` | `ＡＢＣＤＥ`
-`.japanese(.full(.number), .half(.number)))` | `０１２３４５６７８９` | `0123456789`
-`.japanese(.half(.number), .full(.number)))` | `0123456789` | `０１２３４５６７８９`
-`.japanese(.full(.katakana), .half(.katakana)))` | `アイウエオ` | `ｱｲｳｴｵ`
-`.japanese(.half(.katakana), .full(.katakana)))` | `ｱｲｳｴｵ` | `アイウエオ`
+`.japanese(.full(.alphabet), .half(.alphabet))` | `ＡＢＣＤＥ` | `ABCDE`
+`.japanese(.half(.alphabet), .full(.alphabet))` | `ABCDE` | `ＡＢＣＤＥ`
+`.japanese(.full(.number), .half(.number))` | `０１２３４５６７８９` | `0123456789`
+`.japanese(.half(.number), .full(.number))` | `0123456789` | `０１２３４５６７８９`
+`.japanese(.full(.katakana), .half(.katakana))` | `アイウエオ` | `ｱｲｳｴｵ`
+`.japanese(.half(.katakana), .full(.katakana))` | `ｱｲｳｴｵ` | `アイウエオ`
 
 ### Custom filter
 
 ```swift
 struct ExclaimFilter: StringFilterType {
-    func transform(string: String) -> String {
+    func transform(_ string: String) -> String {
         return string + "!"
     }
 }
